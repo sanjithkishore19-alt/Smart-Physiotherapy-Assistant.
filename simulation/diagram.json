@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Sanjith",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -18.6, "left": -211.8, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 71.02, "left": 127.12, "attrs": {"accelX": "1",
+    "accelY": "0",
+    "accelZ": "0"}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -176,
+      "left": -71.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 265.2,
+      "left": -255.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 330.35,
+      "left": -211.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 232.8,
+      "left": -151.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -22.6,
+      "left": 86.4,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "imu1:VCC", "uno:5V", "red", [ "v0", "h57.68", "v163.2", "h-307.2" ] ],
+    [ "imu1:GND", "uno:GND.2", "black", [ "v-19.2", "h96.08", "v240", "h9.6" ] ],
+    [ "imu1:SDA", "uno:A4", "green", [ "v-38.4", "h134.48", "v278.4", "h-268.8" ] ],
+    [ "imu1:SCL", "uno:A5", "green", [ "v-57.6", "h144.08", "v316.8", "h-259.2" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:GND", "uno:GND.1", "black", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:8", "green", [ "v19.2", "h114" ] ],
+    [ "led1:C", "uno:GND.3", "green", [ "v-96", "h211.6" ] ],
+    [ "bz1:2", "uno:9", "green", [ "v19.2", "h57.2" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v-96", "h19.2" ] ],
+    [ "btn1:1.l", "uno:2", "green", [ "h0" ] ],
+    [ "btn1:1.r", "uno:GND.1", "green", [ "v0", "h9.8", "v57.6", "h-259.2" ] ]
+  ],
+  "dependencies": {}
+}
